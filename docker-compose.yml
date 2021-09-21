@@ -9,6 +9,7 @@ services:
             - "5432:5432"
 
     app:
+        image: arkaikus/flask_api
         build: .
         env_file: 
             - .env
