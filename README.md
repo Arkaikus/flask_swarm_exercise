@@ -6,7 +6,7 @@ Simple TODO flask app deployed with docker, docker-compose and maybe docker swar
 - Run `make build`
 - Run `docker compose push app`
 
-# Deploy
+# Docker Compose
 
 - Run `make run` to deploy in docker 
 - Run `make db` once to initialize postgresql database
@@ -24,5 +24,5 @@ Simple TODO flask app deployed with docker, docker-compose and maybe docker swar
 
 ## Remove Docker Swarm
 
-- `docker stack rm flask_project`
-- `docker swarm leave --force`
+- `docker stack rm flask_project` or `make sdelete`
+- `docker swarm leave --force` or `make sleave`
