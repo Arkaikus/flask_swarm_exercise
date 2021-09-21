@@ -1,21 +1,25 @@
 # Flask API example
 
+Simple TODO flask app deployed with docker, docker-compose and maybe docker swarm
+
 # Docker hub
-- `docker compose -p "flask_app" build app`
-- `docker tag <img-id> <username>/<tag>`
+- Run `make build`
+- Run `docker compose push app`
 
 # Deploy
 
-Run `docker compose up -d` to deploy in docker then tty to the container and run
-- `flask db init`
-- `flask db migrate -m "init"`
-- `flask db upgrade` to initialize the db
+- Run `make run` to deploy in docker 
+- Run `make db` once to initialize postgresql database
 
 # Docker Swarm
 
-- [deploy to swarm](https://docs.docker.com/engine/swarm/stack-deploy/)
+- Guide: [deploy to swarm](https://docs.docker.com/engine/swarm/stack-deploy/)
+- Check Makefile  or:
 - `docker swarm init`
-- `docker stack deploy --compose-file .\docker-compose.yml flask_project`
+- `docker stack deploy --compose-file .\docker-compose.yml flask_project` or `make sdeploy`
+- `docker exec -it <app-id> flask db init`
+- `docker exec -it <app-id> flask db migrate`
+- `docker exec -it <app-id> flask db upgrade`
 - `docker stack services flask_project`
 
 ## Remove Docker Swarm
